@@ -38,29 +38,29 @@ def getListEventTypes2():
     return jsonify(jsonDatawithEventType)
 
 
-#Browser url need to hit http://localhost:5000/forth?eventId=30299976
+#Browser url need to hit http://localhost:5000/forth?EventID=30299976
 @app.route('/forth')
 def getListwithEventId():
-    eventId = request.args.get('eventId', type=str)
-    url = "http://213.52.128.120/betfair_api/matchapi.php?Action=listMarketTypes&"+eventId;
+    eventId = request.args.get('EventID', type=str)
+    url = "http://213.52.128.120/betfair_api/matchapi.php?Action=listMarketTypes&EventID="+eventId;
     resource1 = requests.get(url)
     jsonDatawithEventType = resource1.json()
     return jsonify(jsonDatawithEventType)
 
-#Browser url need to hit http://localhost:5000/fifth?marketID=1.165633879
+#Browser url need to hit http://localhost:5000/fifth?MarketID=1.165633879
 @app.route('/fifth')
 def getListwithMarketId():
-    marketID = request.args.get('marketID', type=str)
-    url = "http://213.52.128.120/betfair_api/matchapi.php?Action=listMarketRunner&"+marketID;
+    marketID = request.args.get('MarketID', type=str)
+    url = "http://213.52.128.120/betfair_api/matchapi.php?Action=listMarketRunner&MarketID="+marketID;
     resource1 = requests.get(url)
     jsonDatawithEventType = resource1.json()
     return jsonify(jsonDatawithEventType)
 
-#Browser url need to hit http://localhost:5000/sixth?marketID=1.165633879
+#Browser url need to hit http://localhost:5000/sixth?MarketID=1.165633879
 @app.route('/sixth')
 def getListwithMarketId2():
-    marketID = request.args.get('marketID', default=1, type=str)
-    url = "http://213.52.128.120/betfair_api/matchapi.php?Action=listRunnerBookFull&"+marketID;
+    marketID = request.args.get('MarketID', default=1, type=str)
+    url = "http://213.52.128.120/betfair_api/matchapi.php?Action=listRunnerBookFull&MarketID="+marketID;
     resource1 = requests.get(url)
     jsonDatawithEventType = resource1.json()
     return jsonify(jsonDatawithEventType)
